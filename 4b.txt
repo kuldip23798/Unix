@@ -1,0 +1,28 @@
+#!/bin/bash
+if [ $# -eq 0 ]
+then 
+	echo "Invalid argument"
+fi
+
+if [ $# -eq 2 ]
+then
+	dirname = $2
+else
+	dirname = `pwd`
+fi
+
+inode = `stat -c %i $1`
+count = 0
+
+for link in `find $dirname -inum $inode`
+do
+	echo $link
+	count = `expr $count + 1`
+done
+
+if [ $count -eq 0 ]
+then	
+	echo "$1 has no link in the directory $dirname"
+else
+	echo "$1 has $count links in the directory $dirname"
+fi

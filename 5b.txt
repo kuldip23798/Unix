@@ -1,0 +1,13 @@
+#!/bin/bash 
+cdate=`date +%d`
+# date +%d will find current day
+if [ $cdate -gt 9 ]
+then
+	# If date is between 10-31
+	cal | sed 's/'$cdate'/**/'
+else
+	# If date is between 1-9
+	cc=`echo $cdate | cut -c 2`
+	cal | sed 's/\<'$cc'\>/*/'
+fi
+

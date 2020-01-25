@@ -1,0 +1,24 @@
+#!/bin/bash
+
+while true
+do
+	echo "Enter the password"
+	read pwd1
+	echo "Re-enter the password"
+	read pwd2
+	if [ $pwd1 == $pwd2 ]
+	then
+		echo "Terminal locked"
+		echo "Please enter the password to unlock the terminal"
+		read pwd1
+		while [ $pwd1 != $pwd2 ]
+		do 
+			echo "Password mismatch. Enter again"
+			read pwd1
+		done
+		echo "Terminal locked"
+		exit
+	else
+		echo "Password mismatch. Try again"
+	fi
+done

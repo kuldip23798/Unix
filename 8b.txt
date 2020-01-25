@@ -1,0 +1,29 @@
+#!/bin/bash
+echo "enter the username"
+read usr
+tm=`who | tr -s " " | grep $usr | cut -d " " -f4`
+tm=`echo $tm | cut -d " " -f1`
+if [ $tm ]
+then
+    chr=`date +%H`
+    cmin=`date +%M`
+    umin=`echo $tm | cut -d ":" -f2`
+    umin=`echo $umin | tr -d ' ' | cut -c 1,2`
+    uhr=`echo $tm | cut -d ":" -f1`
+    uhr=`echo $uhr | tr -d ' ' | cut -c 1,2`
+    m=`expr $cmin - $umin`
+    h=`expr $chr - $uhr`
+    if [ $m -lt 0 ]
+    then
+  	h=`expr $h - 1`
+	m=`expr $m + 60`
+    fi
+    if [ $m -le 1 -a $h -eq 0 ]
+    then
+	echo "\n $usr has logged in since $m minutes"
+        else
+	echo "\n $usr has logged in before $m minutes"
+    fi
+    else
+        echo "user : $usr has not logged in"
+fi

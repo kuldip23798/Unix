@@ -1,0 +1,17 @@
+#!/bin/bash
+echo "Enter the file name"
+read file
+if [ -f $file ]
+then
+	set - `ls -l $file`
+	echo "File permission: $1"
+	echo "File link: $2"
+	echo "File username: $3"
+	echo "File groupname: $4"
+	echo "File block size: $5"
+	echo "Date of modification: $6:$7"
+	echo "Time of modification: $8"
+	echo "Filename: $9"
+else
+	echo "File not found"
+fi

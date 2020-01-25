@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+then
+	echo "Error: Invalid Argument"
+else
+	if [ -e ~/mydir1 ]
+	then 
+		echo "mydir already exists"
+	else
+		mkdir ~/mydir1
+	fi
+	d=`ls -x $*`
+
+	for x in $d
+	do
+		echo "The content of $x are "
+		cat $x
+		cp $x ~/mydir1
+		echo "$x copied to ~/mydir1"
+	done
+fi	

@@ -1,0 +1,23 @@
+#!/bin/bash
+echo -e " Enter the filename :\c"
+read fn
+for ln in `cat $fn`
+do
+	lgth=`echo $ln | wc -c`
+	lgth=`expr $lgth - 1`
+	s=1;e=40
+	if [ $lgth -gt 40 ]
+	then
+	while [ $lgth -gt 40 ]
+		do
+			echo "`echo $ln | cut -c $s-$e`\\"
+			s=`expr $e + 1`
+			e=`expr $e + 40`
+			lgth=`expr $lgth - 40`
+		done
+	echo $ln | cut -c $s-
+	else
+		echo $ln
+	fi
+done
+echo "File Folded "

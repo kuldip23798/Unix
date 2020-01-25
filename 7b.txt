@@ -1,0 +1,22 @@
+#!/bin/bash
+if [ $# -eq 0 ]
+then
+	echo "no arguments"
+else
+	tr " " "\n" < $1 > temp1
+	shift
+	for i in $*
+	do
+	echo $i
+	tr " " "\n" < $i > temp2
+	y=`wc -l < temp1`
+	j=1
+	while [ $j -le $y ]
+	do 
+	x=`head -n $j temp1 | tail -1`
+	c=`grep -c "$x" temp2`
+	echo "$x occurs $c times"
+	j=`expr $j + 1`
+	done
+	done
+fi

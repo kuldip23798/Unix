@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ $# -eq 0]
+then
+	echo "Pass an argument"
+else
+	for i in $*
+	do 
+		if [ -f $i ]
+		then
+			a = `echo $i | tr '[a-z]' '[A-Z]'`
+			mv $i $a
+			echo "The new file name is: $a"
+		else
+			echo "This is not a file"
+		fi
+	done
+fi

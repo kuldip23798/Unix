@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "enter a file"
+read fname
+echo "enter the starting line number"
+read s
+a=`expr $s + 1`
+echo "enter the ending line number"
+read n
+b=`expr $n - 1`
+sed -n $a,$b\p $fname | cat>abcd
+cat abcd

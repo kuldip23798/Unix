@@ -1,0 +1,11 @@
+BEGIN { printf "the student book details are" }
+	{	
+		tot += $2
+		books [$1] = books [$1] + $2
+	}
+END {
+	printf "\n sub name \t no of books sold\n"
+for(i in books)
+		printf "%s \t %d \n" , i , books[i]
+		printf "total books sold = %d " , tot 
+} 

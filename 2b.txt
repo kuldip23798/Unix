@@ -1,0 +1,16 @@
+#!/bin/bash
+for nam in $*
+do
+	y=`grep $nam /etc/passwd |cut -d":" -f1`
+	
+	if [ -n $y ]
+	then
+		if [ $y = $nam ]
+		then
+		x=`grep $nam /etc/passwd |cut -d ":" -f6`
+		echo "Home directory of $nam is $x"
+		else
+		echo "$nam is an invalid login"
+		fi
+	fi
+done
