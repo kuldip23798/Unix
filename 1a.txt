@@ -9,9 +9,9 @@ fi
 
 large=0;
 
-for file in `find $dir -type -f`
+for file in `find $dir -type f`
 do
-	size= `stat -c %s $file`
+	size=`stat -c %s $file`
 	if [ $size -gt $large ]
 	then
 		large=$size
