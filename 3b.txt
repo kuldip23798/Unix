@@ -6,7 +6,7 @@ do
 	read pwd1
 	echo "Re-enter the password"
 	read pwd2
-	if [ $pwd1 == $pwd2 ]
+	if [ $pwd1 = $pwd2 ]
 	then
 		echo "Terminal locked"
 		echo "Please enter the password to unlock the terminal"
