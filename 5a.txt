@@ -9,7 +9,7 @@ else
 		then
 			echo "File does not exist"
 		else
-			ls -l $1 | tr -s " " | cut -d " " -f 6, 7, 8, 9
+			ls -l $1 | tr -s " " | cut -d " " -f 6,7,8,9
 		fi
 	done
 fi
