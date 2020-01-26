@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ $# -eq 0]
+if [ $# -eq 0 ]
 then
 	echo "Pass an argument"
 else
@@ -7,7 +7,7 @@ else
 	do 
 		if [ -f $i ]
 		then
-			a = `echo $i | tr '[a-z]' '[A-Z]'`
+			a=`echo $i | tr '[a-z]' '[A-Z]'`
 			mv $i $a
 			echo "The new file name is: $a"
 		else
