@@ -5,7 +5,7 @@ flag=0
 
 for x in `ls $d`
 do 
-	len=`expr length $x`
+	len=`expr length + $x`
 	if [ $len -ge 10 ]
 	then
 		flag=1
